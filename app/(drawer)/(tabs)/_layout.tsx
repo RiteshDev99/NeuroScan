@@ -1,13 +1,27 @@
 import { Tabs } from 'expo-router';
-import { FontAwesome6, Fontisto } from "@expo/vector-icons";
+import { AntDesign, MaterialCommunityIcons  } from "@expo/vector-icons";
 import CustomHeader from "@/src/components/customHeader";
+import {useSafeAreaInsets} from "react-native-safe-area-context";
 
 export default function TabLayout() {
+
+    const insets = useSafeAreaInsets();
+
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: '#154354',
-                header: () => <CustomHeader />,
+                tabBarActiveTintColor: '#60a5fa',
+                header: ({ route, options }) => (
+                    <CustomHeader
+                        routeName={route.name}
+                        title={options.title || route.name}
+                    />
+                ),
+                tabBarStyle: {
+                    paddingBottom: insets.bottom,
+                    backgroundColor:'#fff',
+                    height: 60 + insets.bottom,
+                },
             }}
         >
             <Tabs.Screen
@@ -15,7 +29,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ color }) => (
-                        <Fontisto size={20} name="compass" color={color} />
+                        <AntDesign name="home" size={24} color={color} />
                     ),
                 }}
             />
@@ -24,7 +38,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Scan',
                     tabBarIcon: ({ color }) => (
-                        <FontAwesome6 size={20} name="circle-user" color={color} />
+                        <MaterialCommunityIcons name="line-scan" size={24} color={color} />
                     ),
                 }}
             />

@@ -300,25 +300,20 @@ const ImageTab: React.FC = () => {
 
     return (
         <View style={{flex: 1, backgroundColor: 'white'}}>
-            <View style={{paddingTop: 22, paddingBottom: 10, paddingHorizontal: 24}}>
-                <Text style={{fontSize: 30, fontWeight: 'bold', color: '#1f2937'}}>Brain MRI Analysis</Text>
-                <Text style={{color: '#6b7280', marginTop: 8}}>Upload a brain MRI scan for Alzheimer's detection</Text>
-            </View>
-
-            <ScrollView style={{flex: 1, paddingHorizontal: 24}} showsVerticalScrollIndicator={false}>
+            <ScrollView style={{flex: 1, paddingHorizontal: 15}} showsVerticalScrollIndicator={false}>
                 {!selectedImage ? (
-                    <View style={{alignItems: 'center', paddingVertical: 48}}>
+                    <View style={{alignItems: 'center', paddingVertical: 55}}>
                         <TouchableOpacity
                             onPress={pickImage}
                             disabled={uploading}
                             activeOpacity={0.8}
                             style={{
-                                backgroundColor: '#9333ea',
+                                backgroundColor: '#3b82f6',
                                 borderRadius: 24,
                                 padding: 32,
                                 width: '100%',
                                 maxWidth: 400,
-                                shadowColor: '#9333ea',
+                                shadowColor: '#3b82f6',
                                 shadowOffset: {width: 0, height: 4},
                                 shadowOpacity: 0.3,
                                 shadowRadius: 8,
@@ -328,7 +323,7 @@ const ImageTab: React.FC = () => {
                             <View style={{alignItems: 'center'}}>
                                 <View
                                     style={{backgroundColor: 'white', borderRadius: 50, padding: 24, marginBottom: 16}}>
-                                    <Ionicons name="cloud-upload-outline" size={64} color="#9333ea"/>
+                                    <Ionicons name="cloud-upload-outline" size={64} color="#3b82f6"/>
                                 </View>
                                 <Text style={{color: 'white', fontSize: 20, fontWeight: 'bold', marginBottom: 8}}>
                                     {uploading ? 'Uploading...' : 'Upload MRI Scan'}
@@ -373,7 +368,7 @@ const ImageTab: React.FC = () => {
                         </View>
                     </View>
                 ) : (
-                    <View style={{paddingBottom: 32}}>
+                    <View style={{paddingBottom: 32, marginTop: 24}}>
                         <View style={{
                             backgroundColor: 'white',
                             borderRadius: 24,

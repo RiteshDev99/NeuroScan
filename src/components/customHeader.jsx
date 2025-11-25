@@ -1,22 +1,27 @@
 import { StyleSheet, View, Text,  TouchableOpacity } from "react-native";
-import { useNavigation } from "expo-router";
-import { DrawerActions } from "@react-navigation/native";
-import { EvilIcons, Ionicons } from "@expo/vector-icons";
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { SafeAreaView } from "react-native-safe-area-context";
-const CustomHeader = () => {
-    const navigation = useNavigation();
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+const CustomHeader = ({ routeName, title }) => {
+
+    const titles = {
+        index: "Good Morning, Alex",
+        Scan:'Brain MRI',
+    };
+
+    const headerTitle = titles[routeName] ?? title;
 
     return (
         <SafeAreaView style={styles.safeArea} edges={['top']}>
             <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
-                    <Ionicons size={28} name="menu-outline" color="#fff" />
-                </TouchableOpacity>
-
-               <Text className='text-xl text-white' >Hello</Text>
-
+                <View className='flex-row items-center gap-x-3' >
+                    <TouchableOpacity className=' flex h-12 w-12 bg-[#3b82f6] rounded-full items-center justify-center' >
+                        <FontAwesome6 name="user" size={20} color="#fff" />
+                    </TouchableOpacity>
+                    <Text className='text-xl text-[#000000]'>{headerTitle}</Text>
+                </View>
                 <TouchableOpacity>
-                    <EvilIcons size={30} name="search" color="#fff" />
+                    <Ionicons name="notifications-outline" size={24} color="black" />
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -25,12 +30,12 @@ const CustomHeader = () => {
 
 const styles = StyleSheet.create({
     safeArea: {
-        backgroundColor: "#103540",
+        backgroundColor: "#fff",
     },
     header: {
         height: 56,
         width: "100%",
-        backgroundColor: "#154354",
+        backgroundColor: "#fff",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",

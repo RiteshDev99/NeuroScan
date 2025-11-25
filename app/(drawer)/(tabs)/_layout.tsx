@@ -20,9 +20,9 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="profile"
+                name="Scan"
                 options={{
-                    title: 'Profile',
+                    title: 'Scan',
                     tabBarIcon: ({ color }) => (
                         <FontAwesome6 size={20} name="circle-user" color={color} />
                     ),

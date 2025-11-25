@@ -68,7 +68,7 @@ const CustomDrawerContent = (props: DrawerContentComponentProps) => {
                         labelStyle={styles.drawerLabel}
                         style={styles.drawerItem}
                         onPress={() => {
-                            router.push("/(drawer)/(tabs)/profile");
+                            router.push("/(drawer)/(tabs)/Scan");
                         }}
                     />
                 </View>

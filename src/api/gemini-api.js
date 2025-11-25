@@ -3,6 +3,7 @@ import {NeuroScan_Prompt} from "../utils/NeuroScan-prompt";
 export async function NeuroScanWithGemini(imageBuffer, model = "gemini-2.0-flash") {
     try {
         const base64Image = imageBuffer.toString("base64");
+        const GEMINI_API_KEY = 'YOUR_GEMINI'
 
         const body = {
             contents: [
@@ -22,7 +23,7 @@ export async function NeuroScanWithGemini(imageBuffer, model = "gemini-2.0-flash
             ],
         };
 
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=AIzaSyAzxm-QOmi45-5jZChi-cco2izfDf2Nb2k`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
 
         const res = await fetch(url, {
             method: "POST",
